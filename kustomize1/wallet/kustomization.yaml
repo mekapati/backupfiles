@@ -1,0 +1,3 @@
+resources: 
+   - wallet-deployment.yaml
+   - wallet-service.yaml

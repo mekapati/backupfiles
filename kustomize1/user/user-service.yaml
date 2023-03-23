@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bc62-user-svc
+  labels:
+    app: bc62-user
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8001
+    targetPort: 8001
+  selector:
+    app:  bc62-user
+         

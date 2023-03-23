@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1 
+kind: Kustomization
+
+namespace: kustomize
+
+images: 
+   - name: ghcr.io/malyadr/orders05051:latest
+     newName: ghcr.io/malyadr/api6262
+#    - name:  ghcr.io/malyadr/service6262:latest
+#      newName: ghcr.io/malyadr/servic62
+
+resources: 
+    - api/ 
+    - service/ 
+    - user/ 
+    - wallet/ 

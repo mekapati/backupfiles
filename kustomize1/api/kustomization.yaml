@@ -1,0 +1,19 @@
+resources: 
+   - api-deployment.yaml
+   - api-service.yaml
+
+
+patches: 
+  - target: 
+      kind: Deployment 
+      name: bc51-orders-svc
+
+    patch: |- 
+      - op: replace 
+        path: /spec/template/spec/containers/0
+        value: 
+          name: bc51-orders
+          image: ghcr.io/malyadr/orders51
+   #  patch: |-
+   #    - op: remove 
+   #      path: /spec/template/spec/containers/1

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bc62-user-svc
+  labels:
+    app: bc62-user
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: bc62-user
+    
+  template:
+    metadata:
+      name:  bc62-user
+      labels:
+        app: bc62-user
+    spec:
+      containers:
+        - name: user
+          image: ghcr.io/malyadr/users6262626:latest
+          ports:
+            - containerPort: 8001
+          env: 
+           - name: DEFAULTZONE
+             value: https://service.bootcamp62.ga/eureka/
+           - name: SPRING_DATASOURCE_URL
+             value: jdbc:mysql://a2cb53de39cd4474995391bd98e0b641-225267197.us-east-2.elb.amazonaws.com:3306/bc62_database
+           - name: SPRING_DATASOURCE_USERNAME
+             value: root
+           - name: SPRING_DATASOURCE_PASSWORD
+             value: bc62@123
+      imagePullSecrets: 
+        - name: mysecret
+

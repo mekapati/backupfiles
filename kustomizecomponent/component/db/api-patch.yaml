@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bc51-orders-svc
+spec:
+  template:
+    spec:
+      containers:
+        - name:  bc51-orders-svc
+          env:
+           - name: DEFAULTZONE
+             value: https://diagnostic51.tk/eureka/
+           - name: SPRING_DATASOURCE_URL
+             value: jdbc:mysql://ab9cee9ce34e049768da164a2f3d4529-1295439611.us-east-2.elb.amazonaws.com:3306/zemoso_diagnostics
+           - name: SPRING_DATASOURCE_USERNAME
+             value: root
+           - name: SPRING_DATASOURCE_PASSWORD
+             value: Bootcamp@51   
+           
